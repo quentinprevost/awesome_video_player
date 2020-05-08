@@ -408,11 +408,14 @@ class _AwsomeVideoPlayerState extends State<AwsomeVideoPlayer>
     final isNetwork = netRegx.hasMatch(widget.dataSource);
     final isFile = fileRegx.hasMatch(widget.dataSource);
     if (isNetwork) {
-      return VideoPlayerController.network(widget.dataSource);
+      return VideoPlayerController.network(widget.dataSource,
+          videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true));
     } else if (isFile) {
-      return VideoPlayerController.file(widget.dataSource);
+      return VideoPlayerController.file(widget.dataSource,
+          videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true));
     } else {
-      return VideoPlayerController.asset(widget.dataSource);
+      return VideoPlayerController.asset(widget.dataSource,
+          videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true));
     }
   }
 
@@ -740,7 +743,9 @@ class _AwsomeVideoPlayerState extends State<AwsomeVideoPlayer>
             child: Center(
                 child: AspectRatio(
               aspectRatio: controller.value.aspectRatio,
-              child: VideoPlayer(controller),
+              child: VideoPlayer(
+                controller,
+              ),
             )),
           ))),
 

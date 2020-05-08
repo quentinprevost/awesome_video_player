@@ -10,7 +10,16 @@ dependencies:
   flutter:
     sdk: flutter
 
-  video_player: ^0.10.8+1
+  video_player:
+    git:
+       url: https://github.com/picsyyz/plugins.git
+       ref: audio-player-mix-option-new-structure
+       path: packages/video_player/video_player
+  video_player_platform_interface:
+    git:
+       url: https://github.com/thesoftwarefanatics/plugins.git
+       ref: audio-player-mix-option-new-structure
+       path: packages/video_player/video_player_platform_interface
   orientation: ^1.1.0
   screen: ^0.0.5
   connectivity: ^0.4.6
